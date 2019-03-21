@@ -7,6 +7,6 @@ let main argv =
         match x%y with
         | 0-> None
         | _-> Some (x%y)
-    Console.WriteLine(funkcja (20,12)) 
+    Console.WriteLine(funkcja (20,12))
     Console.ReadKey() |> ignore
     0
