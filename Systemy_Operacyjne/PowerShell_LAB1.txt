@@ -1,0 +1,185 @@
+PS	LABOLATORIUM 1
+
+---------------		ZADANIE 1	---------------
+ U¿yj polecenia Get-Help dla komendy Get-Help, aby dowiedzieæ siê 
+ wiêcej o uzyskiwaniu pomocy. (2.2)
+
+	#Get-Help
+
+---------------		ZADANIE 2	---------------
+ Utwórz strukturê katalogów, stosuj¹c polecenia z PowerShella, 
+ zawieraj¹c¹ katalog g³ówny o nazwie {Dom} oraz dwa podkatalogi o 
+ nazwach {Drzwi} oraz {Okno}.(Dodatek A)
+
+	#New-Item -ItemType Directory -Path Dom
+	#cd Dom
+	#New-Item -ItemType Directory -Path Drzwi
+	#New-Item -ItemType Directory -Path Okno
+
+---------------		ZADANIE 3	---------------
+ Wewn¹trz katalogu {Drzwi} utwórz pliki tekstowe {Klamka.txt} zawieraj¹cy 
+ rodzaj klamki np.: Mosiê¿na, Chromowana itp. oraz {Zamek.txt} zawieraj¹cy 
+ rodzaj zamka np.: Wpuszczany, Nawierzchniowy itp. Do utworzenia pliku u¿yj 
+ strumienia lub przesy³ania potokowego. (2.9)
+
+	#cd Drzwi
+	#New-Item -ItemType File -Path Klamka.txt
+	#"Mosiê¿na","Chromowana" > Klamka.txt
+	#New-Item -ItemType File -Path Zamek.txt
+	#"Wpuszczany","Nawierzchniowy" > Zamek.txt
+
+---------------		ZADANIE 4	---------------
+ Ustaw atrybut pliku {Klamka.txt} na ukryty oraz atrybut pliku Zamek.txt 
+ na tylko do odczytu. (3.3)
+
+	#attrib +r Zamek.txt
+	#attrib +h Klamka.txt
+
+---------------		ZADANIE 5	---------------
+ Skopiuj plik {Klamka.txt} do katalogu {Okno}. Kopiuj¹c ustaw jego nazwê 
+ na {Klamka okienna.txt}. (Dodatek A)
+
+	#Copy-Item C:\Users\Kamil\Dom\Drzwi\Klamka.txt C:\Users\Kamil\Dom\Okno\"KlamkaOkienna.txt"
+
+---------------		ZADANIE 6	---------------
+ Wyœwietl zawartoœæ pliku {Klamka okienna.txt} wewn¹trz konsoli.(2.9) 
+
+	#get-content KlamkaOkienna.txt
+
+---------------		ZADANIE 7	---------------
+ ZnajdŸ sposób na edycjê pliku {Klamka okienna.txt}.(3.3) 
+			    + 
+---------------		ZADANIE 8	---------------
+ Zmieñ zawartoœæ pliku {Klamka okienna.txt} na Plastikowa. 
+ U¿yj w tym celu strumienia. (2.9) 
+
+	#attrib -h KlamkaOkienna.txt
+	#"Plastikowa" > .\"KlamkaOkienna.txt"
+	#attrib +h KlamkaOkienna.txt
+
+---------------		ZADANIE 9	---------------
+ Wyœwietl zawartoœæ katalogu {Drzwi}. (Dodatek A)
+
+	#get-childitem Drzwi
+
+---------------		ZADANIE 10	---------------
+ Wyœwietl pomoc w zewnêtrznym oknie na temat polecenia 
+ Get-ChildItem. ZnajdŸ sposób na wyœwietlenie plików ukrytych. (2.2)
+
+	#Get-Help Get-ChildItem -ShowWindow
+	#Get-ChildItem  C:\Users\Kamil\Dom\Drzwi -Force
+
+---------------		ZADANIE 11	---------------
+ U¿ywaj¹c polecenia Get-ChildItem wyœwietl zawartoœæ katalogu i podkatalogów 
+ folderu {Dom}. Wyœwietl tylko pliki o rozszerzeniu *.txt. Wyœwietl pliki ukryte. 
+
+	#get-childitem Dom\Okno -Filter "$txt" -Force
+	#get-childitem Dom\Drzwi -Filter "$txt" -Force
+
+---------------		ZADANIE 12	---------------
+ U¿ywaj¹c poprzedniego polecenia oraz przetwarzania potokowego i strumieni skonstruuj 
+ polecenie, które odnajdzie wszystkie pliki o rozszerzeniu *.txt, a nastêpnie 
+ zapisze ich nazwy do pliku {Dokumenty.txt} w folderze {Dom}.(2.9)
+
+	#get-childitem Dom\Okno -Filter "$txt" -Force 1>>Dokumenty.txt
+	#get-childitem Dom\Drzwi -Filter "$txt" -Force 1>>Dokumenty.txt
+
+---------------		ZADANIE 13	---------------
+ Utwórz folder {Dokumenty} w katalogu {Dom}.
+
+	#New-Item -ItemType Directory -Path Dokumenty
+
+---------------		ZADANIE 14	---------------
+ Wyszukaj wszystkie pliki *.txt w podkatalogach folderu {Dom}, a nastêpnie przenieœ 
+ je do katalogu {Dokumenty}. Wykonaj polecenie stosuj¹c jeden, ci¹g³y zapis z 
+ wykorzystaniem potoków. (2.9)
+
+---------------		ZADANIE 15	---------------
+ Utwórz foldery {Katalogi} oraz {Parzyste} wewn¹trz folderu {Dom}.
+
+	#new-item -itemtype Directory -path Katalogi
+	#new-item -itemtype Directory -path Parzyste
+
+---------------		ZADANIE 16	---------------
+ Napisz funkcjê UtwórzKatalogi, która utworzy w folderze {Katalogi} 9 folderów  
+ o nazwach {Katalog1},{Katalog2} itd. U¿yj w tym celu pêtli for. (3.1) 
+
+#Function UtwórzKatalogi {
+#    for($i=1;$i -lt 10;$i++){
+#        New-Item -ItemType Directory -Path C:\Users\Kamil\Dom\Katalogi\Katalog$i;
+#    }
+#}
+#UtwórzKatalogi
+
+---------------		ZADANIE 17	---------------
+ Skonstruuj polecenie które wyœwietli zawartoœæ folderu katalogi, a nastêpnie wybierze 
+ te z parzyst¹ cyfr¹ na koñcu i przeniesie je do katalogu {Parzyste}.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
