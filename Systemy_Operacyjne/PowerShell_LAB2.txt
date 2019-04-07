@@ -1,0 +1,158 @@
+PS	LABOLATORIUM 2
+
+---------------		ZADANIE 1	---------------
+ Utwórz plik tekstowy, w którym znajdowaæ siê bêd¹ nazwy kolejnych miesiêcy 
+ w roku, ka¿dy miesi¹c w nowej linii dokumentu. Skorzystaj w tym celu 
+ ze strumieni. (3.1) 
+
+	#New-Item -ItemType File -Path D:\Dangemik\SO\miesiace.txt
+	 <#"styczeñ" > miesiace.txt
+	 "luty" >> miesiace.txt
+	 "marzec">> miesiace.txt
+	 "kwiecien">> miesiace.txt
+	 "maj">> miesiace.txt
+	 "czerwiec">> miesiace.txt
+	 "lipiec">> miesiace.txt
+	 "sierpien">> miesiace.txt
+	 "wrzesien">> miesiace.txt
+	 "paŸdziernik">> miesiace.txt
+	 "listopad">> miesiace.txt
+	 "grudzieñ">> miesiace.txt#>
+
+
+---------------		ZADANIE 2	---------------
+ Pobierz zawartoœæ pliku tekstowego do zmiennej typu string. Zdefiniuj typ 
+ zmiennej przed pobraniem zawartoœci pliku. (3.1)
+
+	#[string] $mies =Get-Content "miesiace.txt" #tekst
+
+---------------		ZADANIE 3	---------------
+ Wyœwietl zawartoœæ zmiennej. 
+
+	#$mies
+
+---------------		ZADANIE 4	---------------
+ ZnajdŸ indeks rozpoczynaj¹cy nazwê drugiego miesi¹ca, nastêpnie u¿ywaj¹c
+ metody substring zapisz j¹ do drugiego pliku tekstowego o nazwie
+ {Miesi¹c roku przestêpnego}. (3.1) 
+
+	#New-Item -ItemType File -Path C:\Users\Kamil\PSLab2\miesi¹ce.txt
+	#$mies.Substring($mies.IndexOf("luty"),$mies.IndexOf("",4))>MiesiacRokuPrzestepnego.txt
+	
+---------------		ZADANIE 5	---------------
+ Usuñ Luty z utworzonej zmiennej. (3.1)
+
+	#$mies=$mies.Remove($mies.IndexOf("luty"),$mies.IndexOf("",4))
+	#$mies
+
+---------------		ZADANIE 6-9	---------------
+<#
+[string[]] $m = Get-Content "miesiace.txt"
+$dni = 31,29,31,30,31,30,31,30,31,30,31,30
+function iloscDni{
+    for($i=0;$i -lt 12;$i++){
+    $m[$i] = $m[$i]+"-"+$dni[$i]
+    }
+    return $m
+}
+$c=iloscDni
+
+$c> Miesiace.txt
+#>
+---------------		ZADANIE 10	---------------
+ Napisz skrypt, który bêdzie obs³ugiwa³ podanie dwóch nadmiarowych 
+ parametrów. Bêd¹ one okreœlaæ zakres liczb, które nale¿y wypisaæ na 
+ standardowe wyjœcie za pomoc¹ pêtli for. (2.10, 2.11, 2.13) 
+<#
+function numbers($a,$b){
+    for($i=$a; $i -le $b; $i++){
+         $i
+    }
+
+}
+numbers 2 5
+#>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
